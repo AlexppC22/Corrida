@@ -18,7 +18,7 @@ public class Corrida
 		carros = new car[5];
 		for(int i = 0; i < carros.length; i++)
 		{
-			carros[i] = new car( i * 120 ,f);
+			carros[i] = new car( i * 120 ,f, i+1);
 		}
 	}
 	

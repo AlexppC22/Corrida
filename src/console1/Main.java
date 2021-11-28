@@ -17,7 +17,6 @@ public class Main
 		try {
 			_corrida.SetupCorrida(f);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		DrawWindow();
@@ -45,7 +44,6 @@ public class Main
 
             if(System.currentTimeMillis() - timer > 1000){
                 timer += 1000;
-                System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }
@@ -53,13 +51,21 @@ public class Main
 	
 	public static void Tick()
 	{
-		System.out.println("Testing Tick");
 		_corrida.UpdateCorrida();
 		f.repaint(0,0,800,600);
 	}
 	
 	public static void DrawWindow()
 	{
+		try {
+			BufferedImage myPicture = ImageIO.read(new File("images/linha-chegada.png"));
+			JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+			picLabel.setBounds(750,0,50,600);
+			f.add(picLabel);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 		try {
 			BufferedImage myPicture = ImageIO.read(new File("images/fundo-corrida.png"));
 			JLabel picLabel = new JLabel(new ImageIcon(myPicture));
@@ -68,7 +74,9 @@ public class Main
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
+		
+		
 		
 		f.setSize(800,600);
 		f.setLayout(null);
