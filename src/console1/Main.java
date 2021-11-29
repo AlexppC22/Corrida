@@ -19,8 +19,11 @@ public class Main
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		DrawWindow();
+		_corrida.StartRace(f);
 		UpdateFrames();
+		
 	}
 	
 	public static void UpdateFrames()
@@ -51,7 +54,6 @@ public class Main
 	
 	public static void Tick()
 	{
-		_corrida.UpdateCorrida();
 		f.repaint(0,0,800,600);
 	}
 	
@@ -67,7 +69,7 @@ public class Main
 			e.printStackTrace();
 		} 
 		try {
-			BufferedImage myPicture = ImageIO.read(new File("images/fundo-corrida.png"));
+			BufferedImage myPicture = ImageIO.read(new File("images/pista-corrida.png"));
 			JLabel picLabel = new JLabel(new ImageIcon(myPicture));
 			picLabel.setBounds(0,0,800,600);
 			f.add(picLabel);
