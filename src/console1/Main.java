@@ -22,39 +22,7 @@ public class Main
 		
 		DrawWindow();
 		_corrida.StartRace(f);
-		UpdateFrames();
 		
-	}
-	
-	public static void UpdateFrames()
-	{
-		long lastTime = System.nanoTime();
-        double amountOfTicks = 60.0;
-        double ns = 1000000000;
-        double delta = 0;
-        long timer = System.currentTimeMillis();
-        int frames = 0;
-        
-		while(running){
-            long now = System.nanoTime();
-            delta += (now - lastTime) / ns;
-            lastTime = now;
-            while(delta >= 1){
-                Tick();
-                delta--;
-            }
-            frames++;
-
-            if(System.currentTimeMillis() - timer > 1000){
-                timer += 1000;
-                frames = 0;
-            }
-        }
-	}
-	
-	public static void Tick()
-	{
-		f.repaint(0,0,800,600);
 	}
 	
 	public static void DrawWindow()
@@ -77,7 +45,6 @@ public class Main
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		
 		
 		f.setSize(800,600);
